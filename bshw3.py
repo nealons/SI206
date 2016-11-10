@@ -10,3 +10,20 @@
 
 # Deliverables
 # Make sure the new page is uploaded to your GitHub account.
+import requests
+from bs4 import BeautifulSoup
+import urllib.request, urllib.parse, urllib.error
+import re 
+
+f_out = open('output.html', 'w')
+base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
+r = requests.get(base_url)
+soup = BeautifulSoup(r.text, "html.parser")
+text_word_soup = soup.prettify()
+
+
+student_change = re.sub("student", "AMAZING student", text_word_soup)
+
+f_out.write(student_change)
+f_out.close()
+

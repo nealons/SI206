@@ -28,25 +28,37 @@ def spaced(word):
 		return word
 	else:
 		return " " + word
-
-orig = []
-s = tagged_tokens[:150]
-for tup in s:
-	orig.append(tup[0])
-
 final_words = []
 
-print('ORIGINAL TEXT')
-print(" ".join(orig))
-
-for (word, tag) in tagged_tokens[:150]:
+orig = []
+whole_text = tagged_tokens[:150]
+for (word, tag) in whole_text:
 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
 		final_words.append(spaced(word))
 	else:
-		new_word = input("Please enter %s:\n" % (tagmap[tag]))
-		final_words.append(spaced(new_word))
+		new = input("Enter %s:"%(tagmap[tag]))
+		final_words.append(spaced(new))
 
-print ("".join(final_words))
+
+def spaced2(list2):
+	list1 = []
+	for word in list2:
+		if word in [",", ".", "?", "!", ":"]:
+			list1.append(word)
+		else:
+			list1.append(' ' + word)
+	print(''.join(list1))
+print ('\n')
+print('Original Text')
+s = tagged_tokens[:150]
+for tuples in s:
+	orig.append(tuples[0])
+final_original = spaced2(orig)
+
+
+print('\n')
+print('Madlibs Text')
+print("".join(final_words))
 
 
 
