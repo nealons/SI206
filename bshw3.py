@@ -19,11 +19,14 @@ f_out = open('output.html', 'w')
 base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
 soup = BeautifulSoup(r.text, "html.parser")
+
+
 text_word_soup = soup.prettify()
 
+y = text_word_soup.replace('logo2.png', 'media/logo.png')
+x = y.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", 'media/picture2.png')
+text_word_soup2 = re.sub("student", "AMAZING student", x)
 
-student_change = re.sub("student", "AMAZING student", text_word_soup)
-
-f_out.write(student_change)
+f_out.write(x)
 f_out.close()
 
