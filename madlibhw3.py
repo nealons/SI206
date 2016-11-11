@@ -31,7 +31,7 @@ def spaced(word):
 final_words = []
 
 orig = []
-whole_text = tagged_tokens[:150]
+whole_text = tagged_tokens[:150] #creates variable with first 150 tokens
 for (word, tag) in whole_text:
 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
 		final_words.append(spaced(word))
