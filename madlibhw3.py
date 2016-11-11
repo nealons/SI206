@@ -5,7 +5,7 @@ from nltk.book import *
 import random
 from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import gutenberg
-
+#Nealon Suthersan
 
 # Using text2 from the nltk book corpa, create your own version of the
 
@@ -36,7 +36,7 @@ for (word, tag) in whole_text:
 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
 		final_words.append(spaced(word))
 	else:
-		new = input("Enter %s:"%(tagmap[tag]))
+		new = input("Enter %s:"%(tagmap[tag])) #Asks for raw input
 		final_words.append(spaced(new))
 
 
@@ -47,7 +47,7 @@ def spaced2(list2):
 			list1.append(word)
 		else:
 			list1.append(' ' + word)
-	print(''.join(list1))
+	print(''.join(list1)) #joins list into a string
 print ('\n')
 print('Original Text')
 s = tagged_tokens[:150]
@@ -58,7 +58,7 @@ final_original = spaced2(orig)
 
 print('\n')
 print('Madlibs Text')
-print("".join(final_words))
+print("".join(final_words)) #joins into a string 
 
 
 

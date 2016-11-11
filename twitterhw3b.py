@@ -1,3 +1,5 @@
+#Nealon Suthersan
+
 # In this assignment you must do a Twitter search on any term
 # of your choice.
 # Deliverables:
@@ -14,26 +16,24 @@ access_token_secret = "qeZH5nk5Rry4DlCSIoukvAl9BIGsFMmR24LxrTw5zD5fn"
 consumer_key = "HSNLNuIvUjZ5NdKTZQ6Dpbeul"
 consumer_secret = "bJ0w6JkanBdmLQN7B8Cyl7dw6RLvFFFqlbA65xKOPsBdrCiQvO"
 
-auth1 = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth1.set_access_token(access_token, access_token_secret)
+auth1 = tweepy.OAuthHandler(consumer_key, consumer_secret) #basic OAuth code
+auth1.set_access_token(access_token, access_token_secret)  #basic OAuth code continued
 
 api = tweepy.API(auth1)
 
-userinput = input("What tag do you want to search on Twitter? ")
-publictweets = api.search(userinput)
+userinput = input("What tag do you want to search on Twitter? ") #raw input
+publictweets = api.search(userinput) #searches API for what was inputted into raw input
 polarity_acum = 0
 subjectivity_acum = 0
 
 tagtweets = [tweet10.text for tweet10 in publictweets]
 
-# for tweet in publictweets:
-# 	tagtweets = tweet.text
 
 print(tagtweets)
 
 for tweets1 in tagtweets:
-	tweetsblob_analysis = TextBlob(tweets1)
-	subjectivity_acum += tweetsblob_analysis.subjectivity
-	polarity_acum += tweetsblob_analysis.polarity
-print("Average subjectivity is " + (str((subjectivity_acum)/len(tagtweets))))
-print("Average polarity is " + (str((polarity_acum)/len(tagtweets))))
+	tweetsblob_analysis = TextBlob(tweets1) #basic NLP language processing package
+	subjectivity_acum += tweetsblob_analysis.subjectivity #finds subjectivities
+	polarity_acum += tweetsblob_analysis.polarity #finds polarities
+print("Average subjectivity is " + (str((subjectivity_acum)/len(tagtweets)))) #prints average
+print("Average polarity is " + (str((polarity_acum)/len(tagtweets)))) #prints average

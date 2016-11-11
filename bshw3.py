@@ -1,3 +1,5 @@
+#Nealon Suthersan
+
 # Use https://www.si.umich.edu/programs/bachelor-science-
 # information/bsi-admissions as a template.
 # STEPS 
@@ -15,7 +17,7 @@ from bs4 import BeautifulSoup
 import urllib.request, urllib.parse, urllib.error
 import re 
 
-f_out = open('output.html', 'w')
+f_out = open('output.html', 'w') #creates file
 base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
 soup = BeautifulSoup(r.text, "html.parser")
@@ -23,10 +25,10 @@ soup = BeautifulSoup(r.text, "html.parser")
 
 text_word_soup = soup.prettify()
 
-y = text_word_soup.replace('logo2.png', 'media/logo.png')
-x = y.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", 'media/picture2.png')
-text_word_soup2 = re.sub("student", "AMAZING student", x)
+y = text_word_soup.replace('logo2.png', 'media/logo.png') #replaces current photo with photo in media folder
+x = y.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", 'media/picture2.png') #replaces current photo with photo in media folder
+text_word_soup2 = re.sub("student", "AMAZING student", x) #replaces the word 'student' with 'amazing student'
 
-f_out.write(x)
+f_out.write(text_word_soup2)
 f_out.close()
 

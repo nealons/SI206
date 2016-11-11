@@ -1,3 +1,4 @@
+#Nealon Suthersan
 # Write a Python file that uploads an image to your 
 # Twitter account.  Make sure to use the 
 # hashtags #UMSI-206 #Proj3 in the tweet.
@@ -15,5 +16,5 @@ auth1.set_access_token(access_token,access_token_secret)
 
 api_auth = tweepy.API(auth1)
 
-status = "#UMSI206 #Proj3"
-api_auth.update_with_media('Salad.jpg', status=status)
+status = "#UMSI206 #Proj3" #Text associated with tweet 
+api_auth.update_with_media('Salad.jpg', status=status) #Updates Twitter with photo of choice
